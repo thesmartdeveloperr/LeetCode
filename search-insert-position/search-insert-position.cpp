@@ -16,6 +16,8 @@ public:
                 beg=mid+1;
             }
         }
+        // if(pos==-1)
+        //     pos=mid;
         if(pos==-1){
             for(int i=0;i<nums.size();++i){
                 if(nums[i]>target&&i!=nums.size()-1){
