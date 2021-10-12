@@ -6,6 +6,7 @@ public:
             num++;
             i&=i-1;
         }
+        
         return num;
     }
     vector<int> countBits(int n) {
