@@ -7,12 +7,12 @@ public:
         while(j<s.size()){
             if(st.find(s[j])==st.end()){
                 st.insert(s[j]);
-                j++;    
-                res=res>st.size()?res:st.size();
+                j++;
+                res=res > st.size() ? res : st.size();
             }
             else{
                 st.erase(s[i]);
-                i++;   
+                i++;
             }
         }
         return res;
