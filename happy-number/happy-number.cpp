@@ -9,8 +9,6 @@ public:
         return sum;
     }
     bool isHappy(int n) {
-        if(n<=0)
-            return false;
         unordered_set<int> cache;
         while(cache.find(n)==cache.end()){
             cache.insert(n);
