@@ -11,7 +11,6 @@ public:
     }
     int lengthOfLastWord(string s) {
         vector<string> splitted=split(s);
-        string S=splitted[splitted.size()-1];
-        return S.size();
+        return splitted[splitted.size()-1].size();
     }
 };
