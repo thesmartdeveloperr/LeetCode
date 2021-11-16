@@ -1,16 +1,15 @@
 class Solution {
 public:
     bool isPalindrome(string s) {
-        string S="";
-        for(int i=0;i<s.length();++i)
-        {
-            if(iswalnum(s[i]))
-            S+=tolower(s[i]);
+        string tmp="";
+        for(int i=0;i<s.size();++i){
+            if(isalnum(s[i]) and s[i]!=':' and s[i]!=',' and s[i]!='.' and s[i]!=' ')
+                tmp+=tolower(s[i]);
         }
-        s=S;
-       int i=0,j=s.length()-1;
+        int i=0,j=tmp.size()-1;
+        cout<<tmp<<endl;
         while(i<j){
-            if(tolower(s[i])!=tolower(s[j]))
+            if(tmp[i]!=tmp[j])
                 return false;
             i++;
             j--;
