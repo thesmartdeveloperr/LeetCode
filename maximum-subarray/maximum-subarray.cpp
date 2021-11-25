@@ -1,14 +1,13 @@
 class Solution {
 public:
-    int maxSubArray(vector<int>& arr) {
-        //using kadane's algorithm to solve this question.
+    int maxSubArray(vector<int>& nums) {
         int sum=0,tmp_sum=0;
-        int m=*max_element(arr.begin(),arr.end());
-        if(m<0)
-            return m;
-        for(int i=0;i<arr.size();++i){
-            tmp_sum+=arr[i];
-            if(tmp_sum>sum)
+        int maxi=*max_element(nums.begin(),nums.end());
+        if(maxi<0)
+            return maxi;
+        for(auto i:nums){
+            tmp_sum+=i;
+            if(sum<tmp_sum)
                 sum=tmp_sum;
             if(tmp_sum<0)
                 tmp_sum=0;
