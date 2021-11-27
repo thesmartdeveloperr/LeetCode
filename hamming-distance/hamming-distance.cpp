@@ -2,10 +2,10 @@ class Solution {
 public:
     int hammingDistance(int x, int y) {
         int res=0;
-        x=x^y;
-        while(x){
+        int tmp=x^y;
+        while(tmp){
             res++;
-            x&=x-1;
+            tmp&=tmp-1;
         }
         return res;
     }
