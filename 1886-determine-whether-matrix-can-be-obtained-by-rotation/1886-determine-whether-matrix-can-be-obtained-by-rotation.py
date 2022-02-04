@@ -7,13 +7,11 @@ class Solution:
             for i in range(n):
                 for j in range(i,n):
                     mat[i][j],mat[j][i]=mat[j][i],mat[i][j]
-            print(mat)    
             if mat==target:
                 return True
             else:
                 return transpose(mat,n,target,k+1)
         n=len(mat)
-        k=0
         if mat==target:
             return True
-        return (transpose(mat,n,target,k))
+        return (transpose(mat,n,target,0))
