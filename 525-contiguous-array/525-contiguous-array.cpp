@@ -15,9 +15,5 @@ public:
                 mp[temp]=i;
         }
         return Final;
-        //initial logic
-        // int c0=count(nums.begin(),nums.end(),0);
-        // int c1=count(nums.begin(),nums.end(),1);
-        // return min(c0,c1)*2;
     }
 };
