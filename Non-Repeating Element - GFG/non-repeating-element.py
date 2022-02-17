@@ -4,11 +4,11 @@ class Solution:
     def firstNonRepeating(self, arr, n): 
         # Complete the function
         dic={}
-        for i in arr:
-            dic[i]=dic.get(i,0)+1
-        for i in arr:
-            if dic[i]==1:
-                return i
+        for i in range(len(arr)):
+            dic[arr[i]]=dic.get(arr[i],0)+1
+        for i in range(len(arr)):
+            if dic[arr[i]]==1:
+                return arr[i]
         return -1
 
 
