@@ -9,13 +9,7 @@ public:
         for(auto i:mp)
             cout<<i<<" ";
         while(k){
-            char ch;
-            if(k-n+1>=26){
-                ch='z';
-            }
-            else{
-                ch=mp[k-n+1];
-            }
+            char ch=(k-n+1>=26)?'z':mp[k-n+1];
             k-=ch-'a'+1;
             n--;
             res+=ch;
