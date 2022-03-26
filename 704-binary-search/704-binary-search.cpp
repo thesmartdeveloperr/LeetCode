@@ -1,9 +1,21 @@
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
-        int pos=lower_bound(nums.begin(),nums.end(),target)-nums.begin();
-        if(pos<nums.size() and nums[pos]==target)
-            return pos;
-        return -1;
+        int low=0,high=nums.size()-1;
+        int pos=-1;
+        while(low<=high){
+            int mid=low+(high-low)/2;
+            if(nums[mid]>target){
+                high=mid-1;
+            }
+            else if(nums[mid]<target){
+                low=mid+1;
+            }
+            else{
+                pos=mid;
+                break;
+            }
+        }
+        return pos;
     }
 };
