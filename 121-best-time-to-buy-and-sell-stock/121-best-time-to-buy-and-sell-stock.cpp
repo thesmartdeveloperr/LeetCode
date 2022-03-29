@@ -1,7 +1,7 @@
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-       int mx=prices[prices.size()-1];
+        int mx=prices.back();
         vector<int> copy(prices);
         for(int i=prices.size()-1;i>=0;--i){
             copy[i]=mx-prices[i];
