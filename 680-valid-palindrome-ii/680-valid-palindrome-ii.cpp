@@ -4,6 +4,8 @@ public:
         int ct1=0,ct2=0;
         int i=0,j=s.size()-1;
         while(i<=j){
+            if(ct1>1)
+                break;
             if(s[i]==s[j]){
                 i++;
                 j--;
@@ -16,6 +18,8 @@ public:
         i=0;
         j=s.size()-1;
         while(i<=j){
+            if(ct2>1)
+                break;
             if(s[i]==s[j]){
                 i++;
                 j--;
