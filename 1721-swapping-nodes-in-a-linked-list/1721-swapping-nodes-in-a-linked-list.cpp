@@ -21,8 +21,9 @@ public:
         int pos=n-k;
         while(tmp1 and --k)
             tmp1=tmp1->next;
-        while(tmp2 and i++ < pos)
+        while(tmp2 and pos--)
             tmp2=tmp2->next;
+        //tmp1 will point to the k node, tmp2 will point to the n-k             node.
         swap(tmp1->val,tmp2->val);
         return head;
     }
