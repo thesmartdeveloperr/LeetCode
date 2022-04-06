@@ -17,7 +17,7 @@ public:
         swap(ranges[i][0],ranges[i][1]);
         sort(ranges.begin(),ranges.end());
         int tmp;
-        for(int i=i;i<ranges.size();++i){
+        for(int i=0;i<ranges.size();++i){
             if(i==0){
                 ct++;
                 tmp=ranges[i][0];
