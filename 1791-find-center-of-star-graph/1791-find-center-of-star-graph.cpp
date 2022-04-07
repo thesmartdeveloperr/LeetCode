@@ -1,18 +1,10 @@
 class Solution {
 public:
+    // logically the center will be the node that has the max. number of connections...
     int findCenter(vector<vector<int>>& edges) {
-        int res=0;
-        map<int,vector<int>> adj;
-        for(auto i:edges){
-            adj[i[0]].push_back(i[1]);
-            adj[i[1]].push_back(i[0]);
-        }
-        for(auto i:adj)
-            res=res>i.second.size()?res:i.second.size();
-        for(auto i:adj){
-            if(i.second.size()==res)
-                return i.first;
-        }
-        return -1;
+        if(edges[0][0]==edges[1][0] or edges[0][0]==edges[1][1])
+            return edges[0][0];
+        else
+            return edges[0][1];
     }
 };
