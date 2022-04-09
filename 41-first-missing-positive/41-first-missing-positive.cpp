@@ -1,7 +1,7 @@
 class Solution {
 public:
     int firstMissingPositive(vector<int>& nums) {
-        set<int> st(nums.begin(),nums.end()); // make the 
+        unordered_set<int> st(nums.begin(),nums.end()); // make the 
         int mx=*max_element(nums.begin(),nums.end());
         if(mx<0)
             return 1;
