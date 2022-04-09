@@ -2,12 +2,12 @@ class Solution {
 public:
     int findCenter(vector<vector<int>>& edges) {
         // map<int,vector<int>> adj;
-        vector<int> adj[100007];
+        vector<int> adj[100001];
         for(auto i:edges){
             adj[i[0]].push_back(i[1]);
             adj[i[1]].push_back(i[0]);
         }
-        for(int i=0;i<100007;++i){
+        for(int i=0;i<100001;++i){
             if(adj[i].size()==edges.size())
                 return i;
         }
