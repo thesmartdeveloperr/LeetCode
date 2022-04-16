@@ -11,36 +11,14 @@
  */
 class Solution {
 public:
-    void inorder(TreeNode *root,vector<int> &sorted){
-        if(root==NULL){
-            return;
-        }
-        inorder(root->left,sorted);
-        sorted.push_back(root->val);
-        inorder(root->right,sorted);
-    }
-    void postorder(TreeNode *root,vector<int> sorted,vector<int> pref){
-        if(root==NULL){
-            return;
-        }
-        postorder(root->left,sorted,pref);
-        postorder(root->right,sorted,pref);
-        int pos=lower_bound(sorted.begin(),sorted.end(),root->val)-sorted.begin();
-        int n=pref.size();
-        int val;
-        val= pos==0 ? 0 : pref[pos-1];
-        root->val=pref[n-1]-val;
-    }
+    int sum=0;
     TreeNode* convertBST(TreeNode* root) {
-        vector<int> sorted;
-        inorder(root,sorted);
-        int sum=0;
-        vector<int> pref(sorted.size());
-        for(int i=0;i<sorted.size();++i){
-            sum+=sorted[i];
-            pref[i]=sum;
+        if(root){
+            convertBST(root->right);
+            sum+=root->val;
+            root->val=sum;
+            convertBST(root->left);
         }
-        postorder(root,sorted,pref);
         return root;
     }
 };
