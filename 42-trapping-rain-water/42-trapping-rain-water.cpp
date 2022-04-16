@@ -3,19 +3,25 @@ public:
     int trap(vector<int>& height) {
         int water=0;
         int n=height.size();
-        vector<int> left(n),right(n);
-        int mx=height[n-1];
-        for(int i=n-2;i>0;--i){
-            mx=max(mx,height[i]);
-            right[i] = height[i] <= mx ? mx : 0;
+        int maxLeft=height[0];
+        int maxRight=height[n-1];
+        int left=1,right=n-2;
+        while(left<=right){
+            if(maxLeft<maxRight){
+                if(height[left]>maxLeft)
+                    maxLeft=height[left];
+                else
+                    water+=maxLeft-height[left];
+                left++;
+            }
+            else{
+                if(height[right]>maxRight)
+                    maxRight=height[right];
+                else
+                    water+=maxRight-height[right];
+                right--;
+            }
         }
-        mx=height[0];
-        for(int i=1;i<n-1;++i){
-            mx=max(mx,height[i]);
-            left[i] = height[i] <= mx ? mx : 0;
-        }
-        for(int i=1;i<n-1;++i)
-            water += min(left[i],right[i]) - height[i];
         return water;
     }
 };
