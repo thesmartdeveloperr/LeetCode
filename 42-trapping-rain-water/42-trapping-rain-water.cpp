@@ -21,11 +21,8 @@ public:
             else
                 left[i]=0;
         }
-        for(int i=1;i<n-1;++i){
-            int level=min(left[i],right[i]);
-            if(level-height[i]>0)
-                water+=level-height[i];
-        }
+        for(int i=1;i<n-1;++i)
+            water+=min(left[i],right[i])-height[i];
         return water;
     }
 };
