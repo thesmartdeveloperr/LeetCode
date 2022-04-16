@@ -11,13 +11,13 @@
  */
 class Solution {
 public:
-    void preorder(TreeNode *root,vector<int> &Preorder){
+    void inorder(TreeNode *root,vector<int> &sorted){
         if(root==NULL){
             return;
         }
-        Preorder.push_back(root->val);
-        preorder(root->left,Preorder);
-        preorder(root->right,Preorder);
+        inorder(root->left,sorted);
+        sorted.push_back(root->val);
+        inorder(root->right,sorted);
     }
     void postorder(TreeNode *root,vector<int> sorted,vector<int> pref){
         if(root==NULL){
@@ -33,8 +33,7 @@ public:
     }
     TreeNode* convertBST(TreeNode* root) {
         vector<int> sorted;
-        preorder(root,sorted);
-        sort(sorted.begin(),sorted.end());
+        inorder(root,sorted);
         int sum=0;
         vector<int> pref(sorted.size());
         for(int i=0;i<sorted.size();++i){
