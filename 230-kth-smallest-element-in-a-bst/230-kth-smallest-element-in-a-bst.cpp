@@ -11,16 +11,18 @@
  */
 class Solution {
 public:
-    void inorder(TreeNode *root,vector<int> &sorted){
+    void inorder(TreeNode *root,vector<int> &sorted, int k){
         if(root==NULL)
             return;
-        inorder(root->left,sorted);
+        inorder(root->left,sorted,k);
         sorted.push_back(root->val);
-        inorder(root->right,sorted);
+        if(sorted.size()==k)
+            return;
+        inorder(root->right,sorted,k);
     }
     int kthSmallest(TreeNode* root, int k) {
         vector<int> sorted;
-        inorder(root,sorted);
+        inorder(root,sorted,k);
         return sorted[k-1];
     }
 };
