@@ -1,18 +1,18 @@
 class MyHashSet {
-    map<int,int> mp;
+    set<int> st;
     public:
     MyHashSet() {
         
     }
     void add(int key) {
-       mp[key]=1;
+       st.insert(key);
     }
     void remove(int key) {
-        if(mp.find(key)!=mp.end())
-            mp.erase(key);
+        if(st.count(key))
+            st.erase(key);
     }
     bool contains(int key) {
-        return mp.find(key)!=mp.end();
+        return st.count(key);
     }
 };
 
