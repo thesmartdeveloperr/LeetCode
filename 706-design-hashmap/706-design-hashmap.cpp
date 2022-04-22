@@ -1,23 +1,26 @@
 class MyHashMap {
-    map<int,int> v;
 public:
-    MyHashMap() {
-        
-    }
+    map<int,int> mp;
     
     void put(int key, int value) {
-        v[key]=value;
+        mp[key]=value;
     }
     
     int get(int key) {
-        if(v.find(key)==v.end())
+        if(mp.find(key)==mp.end())
             return -1;
-        else
-            return v[key];
+        return mp[key];
     }
     
     void remove(int key) {
-        if(v.find(key)!=v.end())
-            v.erase(key);
+        mp.erase(key);
     }
 };
+
+/**
+ * Your MyHashMap object will be instantiated and called as such:
+ * MyHashMap* obj = new MyHashMap();
+ * obj->put(key,value);
+ * int param_2 = obj->get(key);
+ * obj->remove(key);
+ */
