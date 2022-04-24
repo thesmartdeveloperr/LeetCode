@@ -7,7 +7,7 @@ public:
             for(int j=-r;j<=r;++j){
                 for(int k=-r;k<=r;++k){
                     if( j * j + k * k <= r * r)
-                    st.insert({a-j,b-k});
+                    st.insert({a+j,b+k});
                 }
             }
         }
