@@ -1,21 +1,20 @@
 class Solution {
 public:
     string calc(string s){
-        stack<char> st;
-        for(auto i:s){
-            if(st.empty() and i=='#')
-                continue;
-            else if(i=='#')
-                st.pop();
-            else
-                st.push(i);
+        int ct=0;
+        string a="";
+        for(int i=s.size()-1;i>=0;--i){
+            if(s[i]=='#'){
+                ct++;
+            }
+            else{
+                if(ct>0)
+                    ct--;
+                else
+                    a+=s[i];
+            }
         }
-        s="";
-        while(st.size()){
-            s+=st.top();
-            st.pop();
-        } 
-        return s;
+        return a;
     }
     bool backspaceCompare(string s, string t) {
         return calc(s)==calc(t);
