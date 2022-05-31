@@ -3,16 +3,14 @@ public:
     bool hasAllCodes(string s, int k) {
         if(k>s.size())
             return false;
-        set<string> subs;
+        unordered_map<string,int> subs;
         for(int i=0;i<=s.size()-k;++i){
             int j=i;
-            string S="";
-            while(j<i+k){
-                S+=s[j];
-                j++;
-            }
-            subs.insert(S);
+            string tmp="";
+            while(j<i+k)
+                tmp+=s[j++];
+            subs[tmp]++;
         }
-        return subs.size()==pow(2,k);
+        return subs.size()==(1<<k);
     }
 };
