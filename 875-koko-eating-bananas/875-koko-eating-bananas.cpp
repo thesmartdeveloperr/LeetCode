@@ -6,7 +6,7 @@ public:
             int mid=low+(high-low)/2;
             int val=0;
             for(auto i:piles)
-                val+=(i+mid-1)/mid;
+                val+=ceil(i+mid-1)/mid;
             if(val>h)
                 low=mid+1;
             else
