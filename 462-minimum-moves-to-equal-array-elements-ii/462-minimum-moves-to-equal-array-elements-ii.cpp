@@ -9,7 +9,6 @@ public:
         else{
             median=(nums[nums.size()/2-1]+nums[nums.size()/2])/2;
         }
-        //find the median...
         for(auto i:nums)
             res+=abs(i-median);
         return res;
