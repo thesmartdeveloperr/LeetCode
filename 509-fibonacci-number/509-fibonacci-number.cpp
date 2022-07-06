@@ -1,5 +1,6 @@
 class Solution {
 public:
+    // space optimized dp...
     int fib(int n) {
         int res=0,a=0,b=1,i=1;
         if(n<=1)
