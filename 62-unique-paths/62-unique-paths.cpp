@@ -1,22 +1,15 @@
-class Solution{
+class Solution {
 public:
-    int f(int i,int j,vector<vector<int>> &dp){
-        if(i==0 and j==0)
-           return 1;
-        
-        if(i<0 or j<0)
-            return 0;
-        
-        if(dp[i][j]!=-1)
-            return dp[i][j];
-        
-        int l=f(i,j-1,dp);
-        int r=f(i-1,j,dp);
-        
-        return dp[i][j]=l+r;
-    }
     int uniquePaths(int m, int n) {
-        vector<vector<int>> dp(m,vector<int>(n,-1));
-        return f(m-1,n-1,dp);
+        vector<vector<int>> dp(m+1,vector<int>(n+1,0));
+        for(int i=m-1;i>=0;--i){
+            for(int j=n-1;j>=0;--j){
+                if(i==m-1 or j==n-1)
+                    dp[i][j]=1;
+                else
+                    dp[i][j]=dp[i][j+1]+dp[i+1][j];
+            }
+        }
+        return dp[0][0];
     }
 };
