@@ -21,14 +21,8 @@ public:
         }
         tmp1=headA,tmp2=headB;
         int diff=abs(lenA-lenB);
-        if(lenA>lenB){
-            while(diff--)
-                tmp1=tmp1->next;
-        }
-        else{
-            while(diff--)
-                tmp2=tmp2->next;
-        }
+        while(diff--)
+            lenA>lenB?tmp1=tmp1->next:tmp2=tmp2->next;
         while(tmp1!=tmp2){
             tmp1=tmp1->next;
             tmp2=tmp2->next;
