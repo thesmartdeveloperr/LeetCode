@@ -4,7 +4,7 @@ public:
         if(numRows==1)
             return s;
         string res="";
-        vector<vector<char>> mat(numRows,vector<char>(1000,'#'));
+        vector<vector<char>> mat(numRows,vector<char>(500,'#'));
         
         // store the values in the matrix...
         int i=0;
@@ -28,7 +28,7 @@ public:
         
         // compute the string from the matrix...
         for(int i=0;i<numRows;++i){
-            for(int j=0;j<1000;++j){
+            for(int j=0;j<500;++j){
                 if(mat[i][j]!='#')
                     res+=mat[i][j];
             }
