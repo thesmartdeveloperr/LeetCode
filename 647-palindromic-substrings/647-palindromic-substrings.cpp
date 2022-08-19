@@ -1,11 +1,18 @@
 class Solution {
 public:
-    int countSubstrings(string s) {
-        int res = 0, n = s.length();
-        for(int i = 0; i < n; i++){
-            for(int j = 0; i-j >= 0 && i+j < n && s[i-j] == s[i+j]; j++)res++; //substring s[i-j, ..., i+j]
-            for(int j = 0; i-1-j >= 0 && i+j < n && s[i-1-j] == s[i+j]; j++)res++; //substring s[i-1-j, ..., i+j]
+    int f(int l,int r,string s){
+        int res=0;
+        while(l>=0 and r<s.size() and s[l]==s[r]){
+            l--;
+            r++;
+            res++;
         }
+        return res;
+    }
+    int countSubstrings(string s) {
+        int res=0;
+        for(int i=0;i<s.size();++i)
+            res+=f(i,i,s)+f(i,i+1,s);
         return res;
     }
 };
