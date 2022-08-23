@@ -11,7 +11,7 @@
 class Solution {
 public:
     void checkPalin(ListNode *&head,ListNode *tmp,bool &fl){
-        if(!tmp or !head or !fl)
+        if(!tmp)
             return;
         checkPalin(head,tmp->next,fl);
         if(head->val!=tmp->val){
