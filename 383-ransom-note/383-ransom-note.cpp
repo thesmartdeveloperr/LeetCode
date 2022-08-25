@@ -1,13 +1,13 @@
 class Solution {
 public:
     bool canConstruct(string ransomNote, string magazine) {
-        unordered_map<char,int> mp1,mp2;
-        for(auto i:ransomNote)
-            mp1[i]++;
-        for(auto i:magazine)
-            mp2[i]++;
-        for(auto i:ransomNote)
-            if(mp2[i]<mp1[i])
+        int hash[26]={0};
+        for(int i=0;i<magazine.size();++i)
+            hash[magazine[i]-'a']++;
+        for(auto &i:ransomNote)
+            hash[i-'a']--;
+        for(int i=0;i<26;++i)
+            if(hash[i]<0)
                 return false;
         return true;
     }
