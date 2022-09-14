@@ -34,8 +34,6 @@ public:
         mp[root->val]--;
     }
     int pseudoPalindromicPaths (TreeNode* root) {
-        if(!root)
-            return 0;
         f(root);
         return res;
     }
