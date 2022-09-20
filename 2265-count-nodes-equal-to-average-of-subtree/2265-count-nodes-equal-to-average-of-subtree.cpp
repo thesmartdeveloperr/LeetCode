@@ -11,34 +11,29 @@
  */
 class Solution {
 public:
-    vector<TreeNode *> ptrs;
-    void preorder(TreeNode *root){
+    int ct=0;
+    int sum=0,n=0;
+    void preorder(TreeNode *root,int &sum){
         if(!root)
-            return;
-        preorder(root->left);
-        preorder(root->right);
-        TreeNode *p=root;
-        ptrs.push_back(p);
+            return;   
+        sum+=root->val;
+        n++;
+        preorder(root->left,sum);
+        preorder(root->right,sum);
     }
-    void computeSum(TreeNode *root,vector<int> &res){
+    void f(TreeNode *root){
         if(!root)
             return;
-        computeSum(root->left,res);
-        res[0]+=root->val;
-        res[1]++;
-        computeSum(root->right,res);
+        f(root->left);
+        f(root->right);
+        preorder(root,sum);
+        if(sum/n==root->val)
+            ct++;
+        n=0;
+        sum=0;
     }
     int averageOfSubtree(TreeNode* root) {
-        preorder(root);
-        int cnt=0;
-        for(auto i:ptrs){
-            if(i==NULL)
-                continue;
-            vector<int> res={0,0};
-            computeSum(i,res);
-            if(res[0]/res[1]==i->val)
-                cnt++;
-        }
-        return cnt;
+        f(root);
+        return ct;
     }
 };
