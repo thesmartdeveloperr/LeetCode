@@ -1,10 +1,6 @@
 class MyCalendarThree {
 public:
-    map<int,int> mp;
-    MyCalendarThree() {
-        
-    }
-    
+    map<int,int> mp;    
     int book(int start, int end) {
         int res=0,count=0;
         mp[start]++;
